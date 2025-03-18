@@ -11,12 +11,13 @@ export class AuthenticationService {
   private LoginUrl = 'http://localhost:5293/api/users/login';
   private RegisterUrl = 'http://localhost:5293/api/users/register';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  login(data:Login):Observable<any>{
+  login(data: Login): Observable<any> {
     return this.http.post<any>(this.LoginUrl, data);
   }
-  register(data:Registration):Observable<any>{
+
+  register(data: Registration): Observable<any> {
     return this.http.post<any>(this.RegisterUrl, data);
   }
 }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Login } from './login';
 import { Registration } from './registration';
+import {HomeComponent} from '../home/home.component';
 
 @Component({
   selector: 'app-authentication',
@@ -14,8 +15,8 @@ import { Registration } from './registration';
 })
 export class AuthenticationComponent {
   isLoginActive = true;
-  loginData: Login = { username: '', password: '' };
-  registerData: Registration = {   name: '', surname: '', idOrPassport: '', contact: '', email: '', password: '', confirmPassword: '', terms: false };
+  loginData: Login = { EmailOrId: '', password: '' };
+  registerData: Registration = { name: '', surname: '', idOrPassport: '', contact: '', email: '', password: '', confirmPassword: '', terms: false };
 
   constructor(private authService: AuthenticationService) {}
 
@@ -32,6 +33,8 @@ export class AuthenticationComponent {
     this.authService.login(this.loginData).subscribe(
       response => {
         console.log('Login successful', response);
+        // Redirect to home component
+        window.location.href = '/home';
       },
       error => {
         console.error('Login failed', error);

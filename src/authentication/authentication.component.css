@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
 .auth-container {
@@ -9,10 +8,17 @@
 
 .image-container {
   flex: 1;
-  background-image: url('https://placehold.co/600x800');
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+.image-container.login-background {
+  background-image: url('../assets/travelx.jpg');
+}
+
+.image-container.register-background {
+  background-image: url('../assets/travelx2.jpg');
 }
 
 .overlay {
@@ -39,11 +45,10 @@
 }
 
 .form-content {
-
   font-family: 'Poppins', sans-serif;
   width: 100%;
   overflow-y: auto; 
-  max-width: 400px;
+  max-width: 500px;
   -ms-overflow-style: none;  
   scrollbar-width: none;  
   background-color: white;
@@ -52,7 +57,9 @@
   padding: 2rem;
 }
 
-
+.form-content::-webkit-scrollbar {
+  display: none;
+}
 
 .form-content h2 {
   text-align: center;
@@ -69,27 +76,50 @@
 .button-group {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 65px;
+  background-color: #e8e8e8;
+  border-radius: 25px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .button-group button {
-  flex: 0.4v h;
-  padding: 0.5rem 1rem;
-  border: none;
+  flex: 1;
+  background-color: transparent;
   cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  border: none;
+  color: black;
+  font-size: 16px;
+  transition: color 0.3s ease;
   border-radius: 25px;
+  z-index: 1; 
 }
 
 .button-group button.active {
   background-color: #286848;
   color: white;
-  border-radius: 0.5rem 0 0 0.5rem;
+  font-weight: bold;
+  border-radius: 25px;
 }
 
 .button-group button:not(.active) {
-  background-color: #e8e8e8;
   color: black;
-  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+#toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #286848;
+  border-radius: 25px;
+  transition: left 0.3s ease;
+  z-index: 0; 
 }
 
 .forms-wrapper {
@@ -99,6 +129,10 @@
 }
 
 .forms-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
   max-height: fit-content;
   width: 200%;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -140,7 +174,6 @@
   flex: 1;
 }
 
-
 .forgot-password {
   display: block;
   text-align: left;
@@ -180,6 +213,7 @@
   transition: none;
   position: static;
 }
+
 .form-group.terms {
   display: flex;
   align-items: center;
@@ -193,39 +227,25 @@
   margin-right: 0.5rem;
 }
 
-
 .terms label {
   text-align: right;
   flex: 1;
-  padding-right:40rem; 
+  padding-right: 40rem; 
 }
-
 
 .terms-text {
   white-space: nowrap; 
   flex-grow: 1; 
 }
 
-.form-group.terms .terms{
+.form-group.terms .terms {
   margin: 0;
 }
 
-
-
-
 .form-group.terms .checkbox-container {
-
   text-align: left;
 }
 
 .submit-button {
   margin-top: 1.5rem;
 }
-
-
-
-
-.form-content::-webkit-scrollbar {
-  display: none;
-}
-
