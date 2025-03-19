@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <div class="auth-container">
   <div class="image-container" [ngClass]="{'login-background': isLoginActive, 'register-background': !isLoginActive}">
     <div class="overlay">
@@ -6,7 +8,7 @@
   </div>
   <div class="form-container">
     <div class="form-content">
-      <h2>Welcome</h2>
+      <h2 style="font-weight: bold;">Welcome</h2>
       <p>Log in or Register to manage your business travel needs</p>
       <div class="button-group">
         <div id="toggle" [ngStyle]="{'left': isLoginActive ? '0' : '50%'}"></div>
@@ -22,49 +24,48 @@
           </div>
           <div class="form-group">
             <label for="password" style="font-weight: bold;">Password</label>
-            <input type="password" id="password" [(ngModel)]="loginData.password" name="password" required />
+            <div class="password-container">
+              <input type="password" id="password" [(ngModel)]="loginData.password" name="password" required />
+              <i class="fa fa-eye-slash toggle-password" (click)="togglePasswordVisibility('password')"></i>
+            </div>
           </div>
           <a href="#" class="forgot-password" style="font-weight: bold;">Forgot Password?</a>
-          <button type="submit" class="submit-button">Login</button>
+          <button type="submit" class="login-button" style="font-weight: bold;">Login</button>
         </form>
 
         <!-- Registration Form -->
         <form *ngIf="!isLoginActive" (ngSubmit)="onRegisterSubmit()" class="static-form">
           <div class="form-group horizontal">
             <div class="form-group">
-              <label for="name" style="font-weight: bold;">Name</label>
-              <input type="text" id="name" [(ngModel)]="registerData.name" name="name" required />
+              <input type="text" id="name" placeholder="Name" [(ngModel)]="registerData.name" name="name" required />
             </div>
             <div class="form-group">
-              <label for="surname" style="font-weight: bold;">Surname</label>
-              <input type="text" id="surname" [(ngModel)]="registerData.surname" name="surname" required />
+              <input type="text" id="surname" placeholder="Surname" [(ngModel)]="registerData.surname" name="surname" required />
             </div>
           </div>
           <div class="form-group">
-            <label for="idOrPassport" style="font-weight: bold;">ID/Passport</label>
-            <input type="text" id="idOrPassport" [(ngModel)]="registerData.idOrPassport" name="idOrPassport" required />
+            <input type="text" id="idOrPassport" placeholder="ID/Passport" [(ngModel)]="registerData.idOrPassport" name="idOrPassport" required />
           </div>
           <div class="form-group">
-            <label for="contact" style="font-weight: bold;">Contact</label>
-            <input type="tel" id="contact" [(ngModel)]="registerData.contact" name="contact" required />
+            <input type="tel" id="contact" placeholder="Contact" [(ngModel)]="registerData.contact" name="contact" required />
           </div>
           <div class="form-group">
-            <label for="email" style="font-weight: bold;">Email</label>
-            <input type="email" id="email" [(ngModel)]="registerData.email" name="email" required />
+            <input type="email" id="email" placeholder="Email" [(ngModel)]="registerData.email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="passwordRegister" style="font-weight: bold;">Password</label>
-            <input type="password" id="passwordRegister" [(ngModel)]="registerData.password" name="passwordRegister" required />
+            <div class="password-container">
+              <input type="password" id="passwordRegister" placeholder="Password" [(ngModel)]="registerData.password" name="passwordRegister" required />
+              <i class="fa fa-eye-slash toggle-password" (click)="togglePasswordVisibility('passwordRegister')"></i>
+            </div>
           </div>
           <div class="form-group">
-            <label for="confirmPassword" style="font-weight: bold;">Confirm Password</label>
-            <input type="password" id="confirmPassword" [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required />
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required />
           </div>
           <div class="form-group terms">
             <input type="checkbox" id="terms" [(ngModel)]="registerData.terms" name="terms" class="checkbox-button"/>
             <label for="terms" class="terms-text">I understand the terms and conditions</label>
           </div>
-          <button type="submit" class="submit-button" style="font-weight: bold;">Register</button>
+          <button type="submit" class="register-button" style="font-weight: bold;">Register</button>
         </form>
       </div>
     </div>

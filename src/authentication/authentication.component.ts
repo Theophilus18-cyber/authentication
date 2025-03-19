@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Login } from './login';
 import { Registration } from './registration';
-import {HomeComponent} from '../home/home.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-authentication',
@@ -52,5 +52,19 @@ export class AuthenticationComponent {
         console.error('Registration failed', error);
       }
     );
+  }
+
+  togglePasswordVisibility(fieldId: string): void {
+    const field = document.getElementById(fieldId) as HTMLInputElement;
+    const icon = field.nextElementSibling as HTMLElement;
+    if (field.type === 'password') {
+      field.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      field.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
   }
 }
